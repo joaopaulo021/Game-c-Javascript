@@ -16,7 +16,7 @@
         <div id="instructions" hidden>
             <h2>Instruções:</h2>
             <ul>
-                <li>Aperte a barra de espaço ou toque na tela para pular.</li>
+                <li>Aperte a barra de espaço ou clique com o mouse para pular.</li>
                 <li>Pule por cima dos objetos e muito cuidado para nao ser atingido !</li>
                 <li>A primeira vez que voce for acertado, o personagem ira diminuir de tamanho</li>
                 <li>Quando o personagem estiver pequeno qualquer obstaculo ira te matar</li>
@@ -37,12 +37,13 @@
             </span>
         </div>
 
-        <div id="elementos-game">
+        <div id="elementos-game" hidden>
             <div class="chao-game"></div>
             <img src="./images/power.gif" class="char-game">
             <img src="./images/lua.png" class="lua-game">
             <img src="./images/bad-scrimbo.gif" class="enemy-game">
             <img src="./images/powerup.gif" class="powerup-game">
+            <button type="button" class="btnRestart" onclick="restartGame()"><p>REINICIAR</p></button>
         </div>
 
     </div>

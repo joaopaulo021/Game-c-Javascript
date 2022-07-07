@@ -6,6 +6,8 @@ const lua = document.querySelector('.lua-game');
 const btnstart = document.querySelector('.btnStart');
 const chao = document.querySelector('.chao-game');
 const primeiratela = document.querySelector('#tela-inicial');
+const elementosGame = document.querySelector('#elementos-game');
+const restartgame = document.querySelector('.btnRestart');
 
 /* PULO DO PERSONAGEM */
 
@@ -29,19 +31,9 @@ const loopGame = setInterval(() => {
             .bottom.replace("px", "");
 
         /*DEIXA O PERSONAGEM GRANDE QUANDO PEGA A ESTRELA*/
-        /* FAZ UMA ANIMACAO DE TRANSIÇÃO DE TAMANHO */
 
         if (powerupPosition <= 120 && powerupPosition > 0 && charPosition < 80) {
             charBig();
-
-            for (let i = 0; i < 5;) {
-                setTimeout(() => {
-                    charSmall();
-                }, (i++) * 120);
-                setTimeout(() => {
-                    charBig();
-                }, (i++) * 120);
-            }
         }
 
         /*DEIXA O PERSONAGEM PEQUENO QUANDO ESTA GRANDE */
@@ -53,7 +45,7 @@ const loopGame = setInterval(() => {
             setTimeout(() => {
                 char.classList.remove('rapid');
                 char.classList.add('charSmall');
-            }, 200);
+            }, 100);
 
         } else
         if ((enemyPosition <= 120 && enemyPosition > 0 && charPosition < 80) && char.classList.contains('charSmall')) {
@@ -83,11 +75,11 @@ function charDead() {
     char.classList.remove('char-game');
     char.classList.remove('charSmall');
     char.classList.add('char-dead');
-    chao.style.animation = "none";
-    enemy.style.animation = "none";
-    lua.style.animation = "none";
-    powerUp.style.animation = "none";
-    btnstart.hidden = "false"
+    chao.style.animationPlayState = "paused";
+    enemy.style.animationPlayState = "paused";
+    lua.style.animationPlayState = "paused";
+    powerUp.style.animationPlayState = "paused";
+    restartgame.hidden = false;
 }
 
 /* ABRIR E FECHAR INSTRUÇÕES */
@@ -105,12 +97,28 @@ function openInstructions() {
     instructions.hidden = false;
 }
 
-/* DAR O START NO GAME */
+/* DAR O START E RESTART NO GAME */
 
 function startGame() {
     const primeiraTela = document.querySelector('#tela-inicial');
     primeiraTela.hidden = true;
+    elementosGame.hidden = false;
+    restartgame.hidden = true;
+
 }
 
-document.addEventListener("click", jump);
+function restartGame() {
+    chao.style.animationPlayState = "running";
+    enemy.style.animationPlayState = "running";
+    lua.style.animationPlayState = "running";
+    powerUp.style.animationPlayState = "running";
+    char.classList.remove('char-dead');
+    char.classList.remove('charSmall');
+    char.classList.add('char-game');
+    restartgame.hidden = true;
+    return (restartGame);
+
+}
+
 document.addEventListener("keydown", jump);
+document.addEventListener("click", jump);
