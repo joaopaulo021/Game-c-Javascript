@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game</title>
+    <link rel="icon" type="image/x-icon" href="#" />
+    <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+    <div id="game-container" class="game, initial-screen">
+
+        <div id="instructions" hidden>
+            <h2>Instruções:</h2>
+            <ul>
+                <li>Aperte a barra de espaço ou toque na tela para pular.</li>
+                <li>Pule por cima dos objetos e muito cuidado para nao ser atingido !</li>
+                <li>A primeira vez que voce for acertado, o personagem ira diminuir de tamanho</li>
+                <li>Quando o personagem estiver pequeno qualquer obstaculo ira te matar</li>
+                <li>Pegue a estrela colorida para voltar ao tamanho normal</li>
+            </ul>
+            <button type="button" id="closeInstructionsButton" onclick="closeInstructions()">Fechar</button>
+        </div>
+
+        <div id="tela-inicial">
+            <img src="./images/tela inicial.png" class="tela-inicio">
+
+            <span class="btnStartContainer">
+                <button type="button" class="btnStart" onclick="startGame()"><p>INICIAR JOGO</p><img src="./images/botao vermelho.png"/></button>
+            </span>
+
+            <span class="btnInstructionsContainer">
+                <button type="button" class="btnInstructions" onclick="openInstructions()"><p>INSTRUÇÕES</p><img src="./images/botao branco.png"/></button>
+            </span>
+        </div>
+
+        <div id="elementos-game">
+            <div class="chao-game"></div>
+            <img src="./images/power.gif" class="char-game">
+            <img src="./images/lua.png" class="lua-game">
+            <img src="./images/bad-scrimbo.gif" class="enemy-game">
+            <img src="./images/powerup.gif" class="powerup-game">
+        </div>
+
+    </div>
+    <script src="./javascript/script.js"></script>
+</body>
+
+</html>
