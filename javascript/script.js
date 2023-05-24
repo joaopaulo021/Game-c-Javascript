@@ -24,34 +24,34 @@ const jump = () => {
 
 const loopGame = setInterval(() => {
 
-        const enemyPosition = enemy.offsetLeft;
-        const powerupPosition = powerUp.offsetLeft;
-        const charPosition = +window
-            .getComputedStyle(char)
-            .bottom.replace("px", "");
+    const enemyPosition = enemy.offsetLeft;
+    const powerupPosition = powerUp.offsetLeft;
+    const charPosition = +window
+        .getComputedStyle(char)
+        .bottom.replace("px", "");
 
-        /*DEIXA O PERSONAGEM GRANDE QUANDO PEGA A ESTRELA*/
+    /*DEIXA O PERSONAGEM GRANDE QUANDO PEGA A ESTRELA*/
 
-        if (powerupPosition <= 120 && powerupPosition > 0 && charPosition < 80) {
-            charBig();
-        }
+    if (powerupPosition <= 120 && powerupPosition > 0 && charPosition < 80) {
+        charBig();
+    }
 
-        /*DEIXA O PERSONAGEM PEQUENO QUANDO ESTA GRANDE */
-        /*E MORRE QUANDO ESTA PEQUENO */
+    /*DEIXA O PERSONAGEM PEQUENO QUANDO ESTA GRANDE */
+    /*E MORRE QUANDO ESTA PEQUENO */
 
-        if ((enemyPosition <= 120 && enemyPosition > 0 && charPosition < 80) && char.classList.contains('char-game')) {
-            charSmall();
+    if ((enemyPosition <= 120 && enemyPosition > 0 && charPosition < 80) && char.classList.contains('char-game')) {
+        charSmall();
 
-            setTimeout(() => {
-                char.classList.remove('rapid');
-                char.classList.add('charSmall');
-            }, 100);
+        setTimeout(() => {
+            char.classList.remove('rapid');
+            char.classList.add('charSmall');
+        }, 100);
 
-        } else
+    } else
         if ((enemyPosition <= 120 && enemyPosition > 0 && charPosition < 80) && char.classList.contains('charSmall')) {
             charDead();
         }
-    },
+},
     10);
 
 /* FUNÇÔES TAMANHO DO PERSONAGEM */
